@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  get 'user/welcome'
-  root "static#index"
-
+  # index page
   get 'static/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root "static#index"
+  post '/', to: 'user#welcome_post' 
 
   get 'team', to: 'static#team'
+  # user page
 
   get 'contact', to: 'static#contact'
 
   get 'welcome/:first_name', to: 'user#welcome'
+  # get 'user/welcome' # redirect to welcome/user
 
-  post '/', to: 'user#welcome_post' 
+
 end
