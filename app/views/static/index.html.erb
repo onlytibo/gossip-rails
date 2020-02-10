@@ -1,0 +1,32 @@
+<h1>Welcome to the Gossip Project</h1>
+<p>Find me in app/views/static/index.html.erb</p>
+
+<form method='POST'>
+  <div class="form row justify content center">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <div class="col-4">
+      <input type="text" class="form-control" name="first_name" placeholder="First name">
+    </div>
+    <div class="col-4">
+      <input type="text" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+  <div class="form row justify content center">
+    <div class="col-4">
+      <input type="text" class="form-control" placeholder="city">
+    </div>
+    <div class="col-4">
+      <input type="text" class="form-control" placeholder="age">
+    </div>
+  </div>
+  <div class="form row justify content center">
+    <div class="col-8">
+      <input type="textarea" class="form-control" placeholder="description">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Valider</button>
+</form>
+<!-- <%= link_to "The Gossip Project", root_path, class:"navbar-brand" %> -->
+
+
+
