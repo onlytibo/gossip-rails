@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  # index page
+  # static pages
   get 'static/index'
-
-  root "static#index"
-  post '/', to: 'user#welcome_post' 
-
+  root "static#index" 
   get 'team', to: 'static#team'
-  # user page
-
   get 'contact', to: 'static#contact'
 
+  # dynamic pages
   get 'welcome/:first_name', to: 'user#welcome'
+  post '/', to: 'user#welcome_post'
+  post 'welcome/:first_name', to: 'user#welcome_post'
   # get 'user/welcome' # redirect to welcome/user
 
 

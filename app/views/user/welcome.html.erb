@@ -1,3 +1,34 @@
-<h1>Bonjour <%= @first_name %> </h1>
-<p>Find me in app/views/user/welcome.html.erb</p>
-test thibaut
+<h1>Bonjour <%= @user.first_name %></h1>
+<h2>Voici ton profil :</h2>
+<p>Prénom : <%= @user.first_name %></p>
+<p>Nom : <%= @user.last_name %> </p>
+<p>Age : <%= @user.age %></p>
+<p>Ville : <% city = @user.city %><%=city.name%></p>
+<p>Description : <%= @user.description %></p>
+
+<h2>Mettre à jour mes informations :</h2>
+<form method='POST'>
+  <div class="form row justify content center">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <div class="col-4">
+      <input type="text" class="form-control" name="first_name_form" placeholder="First name">
+    </div>
+    <div class="col-4">
+      <input type="text" class="form-control" name="last_name" placeholder="Last name">
+    </div>
+  </div>
+  <div class="form row justify content center">
+    <div class="col-4">
+      <input type="text" class="form-control" name="city" placeholder="city">
+    </div>
+    <div class="col-4">
+      <input type="text" class="form-control" name="age" placeholder="age">
+    </div>
+  </div>
+  <div class="form row justify content center">
+    <div class="col-8">
+      <input type="textarea" class="form-control" name="description" placeholder="description">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Valider</button>
+</form>
