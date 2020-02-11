@@ -1,24 +1,24 @@
 # README
+Ruby 2.5.1
+Rails 5.2.3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
 
-Things you may want to cover:
+`git clone https://github.com/thibautgallice/gossip-rails.git`
 
-* Ruby version
+`cd gossip-rails/`
 
-* System dependencies
+`bundle install`
 
-* Configuration
+`rails db:create`
 
-* Database creation
+`rails db:migrate`
 
-* Database initialization
+`rails db:reset`
 
-* How to run the test suite
+`rails server`
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Run
 
-* ...
+`Browser > http://localhost:3000/`
