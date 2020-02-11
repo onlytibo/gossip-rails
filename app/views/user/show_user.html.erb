@@ -1,0 +1,13 @@
+<section class="team-section text-center my-5">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold my-5"><%= @user.first_name %> <%= @user.last_name %></h2>
+
+<div style="border:1px solid grey;padding:20px;">
+  <p>Prénom : <strong><%= link_to "#{@user.first_name}", user_path(@user.id) %></strong></p>
+  <p>Nom : <strong><%= @user.last_name %></strong></p>
+  <p>Age : <strong><%= @user.age %></strong></p>
+  <p>Ville : <strong><% city = @user.city %><%=city.name%></strong></p>
+  <p>Description : <strong><i><%= @user.description %></i></strong></p>
+</div>
+  </section>

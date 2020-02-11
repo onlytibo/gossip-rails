@@ -1,7 +1,37 @@
-<h1>Welcome to the Gossip Project</h1>
-<p>Find me in app/views/static/index.html.erb</p>
+<section class="team-section my-5">
 
-<form method='POST'>
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold my-5">Bienvenue sur The Gossip Project</h2>
+  <!-- Section description -->
+  <p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
+    eum porro a pariatur veniam.</p>
+
+
+</section>
+
+<div class="container">
+  <div class="row" style="margin:auto">
+  <% @gossips.each_with_index do |g, index| %>
+
+      <% i = index+1 %>
+
+    <div class="card" style="width: 18rem;margin:10px">
+      <div class="card-body" >
+        <h5 class="card-title"><%= link_to "#{g.title}", gossip_path(i) %></h5>
+        <p class="card-text"><%= "#{g.content}" %></p>
+        <p style="font-style:italic">Posté à <%= g.created_at%> par <%= link_to "#{g.user.first_name}", user_path(g.user.id) %></p>
+        <%= link_to "Voir le gossip", gossip_path(i), class:"btn btn-primary" %>
+      </div>
+    </div>
+
+
+  <% end %>
+</div>
+</div>
+
+
+<!-- <form method='POST'>
   <div class="form row justify content center">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
     <div class="col-4">
@@ -26,7 +56,6 @@
   </div>
   <button type="submit" class="btn btn-primary">Valider</button>
 </form>
-<!-- <%= link_to "The Gossip Project", root_path, class:"navbar-brand" %> -->
-
+<%= link_to "The Gossip Project", root_path, class:"navbar-brand" %> -->
 
 

@@ -1,0 +1,14 @@
+<section class="team-section text-center my-5">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold my-5"><%=@gossip.title%></h2>
+
+    <p class="grey-text w-responsive mx-auto mb-5">Gossip n°<%=@id%></p>
+
+<div style="border:1px solid grey;padding:20px;">
+  <p>Titre du gossip : <strong><%=@gossip.title%></strong></p>
+  <p>Contenu : <strong><i><%=@gossip.content%></i></strong></p>
+  <p>Auteur : <strong><%= link_to "#{@gossip.user.first_name}", user_path(@gossip.user.id) %></strong></p>
+  <p>Date de création : <strong><%=@gossip.created_at%></strong></p>
+</div>
+  </section>

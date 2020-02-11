@@ -15,15 +15,20 @@ class User < ApplicationRecord
     return url
   end
 
-  def self.find_user_in_db(url_first_name)
-    unless User.find_by(first_name:url_first_name).nil?
-      user = User.find_by(first_name:url_first_name)
-      return user
-    else
-      user = User.create(first_name: url_first_name)
-      return user
-    end
+  def self.find(id)
+    user = User.find_by(id:id)
+    return user 
   end
+
+  # def self.find_user_in_db(url_first_name)
+  #   unless User.find_by(first_name:url_first_name).nil?
+  #     user = User.find_by(first_name:url_first_name)
+  #     return user
+  #   else
+  #     user = User.create(first_name: url_first_name)
+  #     return user
+  #   end
+  # end
 
   # def update_user_infos(first_name,last_name,email,age,city,description)
   #   self.first_name = first_name

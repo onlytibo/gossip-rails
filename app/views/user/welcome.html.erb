@@ -1,34 +1,8 @@
-<h1>Bonjour <%= @user.first_name %></h1>
-<h2>Voici ton profil :</h2>
-<p>Prénom : <%= @user.first_name %></p>
-<p>Nom : <%= @user.last_name %> </p>
-<p>Age : <%= @user.age %></p>
-<p>Ville : <% city = @user.city %><%=city.name%></p>
-<p>Description : <%= @user.description %></p>
+<section class="team-section text-center my-5">
 
-<h2>Mettre à jour mes informations :</h2>
-<form method='POST'>
-  <div class="form row justify content center">
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <div class="col-4">
-      <input type="text" class="form-control" name="first_name_form" placeholder="First name">
-    </div>
-    <div class="col-4">
-      <input type="text" class="form-control" name="last_name" placeholder="Last name">
-    </div>
-  </div>
-  <div class="form row justify content center">
-    <div class="col-4">
-      <input type="text" class="form-control" name="city" placeholder="city">
-    </div>
-    <div class="col-4">
-      <input type="text" class="form-control" name="age" placeholder="age">
-    </div>
-  </div>
-  <div class="form row justify content center">
-    <div class="col-8">
-      <input type="textarea" class="form-control" name="description" placeholder="description">
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Valider</button>
-</form>
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold my-5">Bonjour <%= @user_welcome %></h2>
+  <!-- Section description -->
+  <p class="grey-text w-responsive mx-auto mb-5">On ne sait pas vraiment ce que tu fais ici... mais bienvenue quand même !</p>
+
+  </section>
