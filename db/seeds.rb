@@ -36,7 +36,7 @@ end
 g = 0
 
 20.times do
-  Gossip.create(user:User.all.sample,title:Faker::Book.title, content:Faker::Lorem.paragraph(sentence_count: 2))
+  Gossip.create(user:User.all.sample,title:Faker::Book.title[0..13], content:Faker::Lorem.paragraph(sentence_count: 2))
   g += 1
   puts "Gossip #{g} created !"
 end

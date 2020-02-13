@@ -16,13 +16,10 @@
 <div class="alert alert-success" role="alert"><%=params[:add_user]%></div>
 <% end %>
 
-<br />
-<br />
-<%if logged_in?%>
-<%= link_to "Créer un Gossip", new_gossip_path, class:"btn btn-primary" %>
-<%end%>
-
 <div class="container">
+<%if logged_in?%>
+<div class="text-center mb-4"><%= link_to "Créer un Gossip", new_gossip_path, class:"btn btn-primary" %></div>
+<%end%>
   <div class="row" style="margin:auto">
   <% @gossips.each_with_index do |g, index| %>
 

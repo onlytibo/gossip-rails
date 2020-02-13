@@ -10,16 +10,14 @@ Rails.application.routes.draw do
   post 'welcome/:first_name', to: 'static#welcome_post'
   post '/', to: 'static#welcome_post'
 
-  # Profile pages
-
-
   # Dynamic pages
   resources :gossips do
     resources :comments
+    resources :tags
+    resources :likes
   end
   resources :users, except: [:edit, :destroy]
   resources :cities, except: [:edit, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :profiles
-  
 end

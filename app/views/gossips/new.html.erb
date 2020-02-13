@@ -6,22 +6,17 @@
     <% end %>
   </ul></div>
 <% end %> <br />
+<b>Hey, post un petit Gossip :)</b><br /><br />
+<%= form_tag url_for(action: 'create'), method: "post", :class => 'form-group'  do %>
 
-<%= form_tag url_for(action: 'create'), method: "post" do %>
+      <%= label_tag 'Gossip title' %>
+      <%= text_field_tag 'title', nil, class:'form-control' %>
+      <br /> 
 
-      <%= label_tag 'Title' %>
-      <%= text_field_tag 'title' %>
-      <br /> <br />
-
-      <%= label_tag 'Content' %>
-      <%= text_area_tag 'content' %>
-      <br /> <br />
-
-      <%= label_tag 'Author' %>
-      <%= text_field_tag 'user' %>
-      <br /> <br />
-
-      <%= submit_tag "Create Gossip" %>
+      <%= label_tag 'Gossip content' %>
+      <%= text_area_tag 'content', nil, class:'form-control' %>
+      <br /> 
+      <%= submit_tag "Create Gossip", class:"btn btn-primary" %>
 
     <% end %>
 
