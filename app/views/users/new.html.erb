@@ -1,0 +1,51 @@
+<br /><br /><% if @user.errors.any? %>
+  <div class="alert alert-danger" role="alert"><p>Nous n'avons pas réussi à créer le user pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul></div>
+<% end %> 
+
+<% unless @pwd_not_match.nil? %>
+<div class="alert alert-danger" role="alert"><%= @pwd_not_match %></div>
+<% end %>
+
+
+<br />
+
+<%if !logged_in?%>
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+
+      <%= label_tag 'Email' %>
+      <%= text_field_tag 'email' %>
+      <br /> <br />
+
+      <%= label_tag 'Password' %>
+      <%= text_area_tag 'password' %>
+      <br /> <br />
+
+      <%= label_tag 'Re-Password' %>
+      <%= text_field_tag 'password_confirmation' %>
+      <br /> <br />
+
+      <%= label_tag 'City' %>
+      <%= text_field_tag 'city' %>
+      <br /> <br />
+
+      <%= label_tag 'Age' %>
+      <%= text_field_tag 'age' %>
+      <br /> <br />
+
+      <%= label_tag 'First name' %>
+      <%= text_field_tag 'first_name' %>
+      <br /> <br />
+
+      <%= label_tag 'Last Name' %>
+      <%= text_field_tag 'last_name' %>
+      <br /> <br />
+
+      <%= submit_tag "S'enregistrer" %>
+
+    <% end %>
+    <%end%>

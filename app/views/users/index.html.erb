@@ -13,20 +13,26 @@
 
 <div class="container">
   <div class="row">
+
   <% @all_users.each_with_index do |a, index| %>
 
-      <% i = index+1 %>
+    <% i = index+1 %>
 
     <div class="card" style="width: 18rem;margin:10px">
+      
       <div class="card-body" >
+        
         <h5 class="card-title"><strong><%= link_to "#{a.first_name} #{a.last_name}", user_path(i) %></strong></h5>
-        <p class="card-text"><%= "#{a.age}" %> ans.<br /><i><%= "#{a.email}" %></i><br />Lieu : <strong><%= "#{a.city.name}" %></strong></p>
+        
+        <p class="card-text"><%= "#{a.age}" %> ans.<br /><i><%= "#{a.email}" %></i><br />Lieu : <strong>
+        
+        <%= a.city.name if !a.city.nil?%>
+        <%= "Non renseigné" if a.city.nil?%>
+        </strong></p>
         </p>
         <%= link_to "Voir l'auteur", user_path(i), class:"btn btn-primary" %>
       </div>
     </div>
-
-
   <% end %>
 </div>
 </div>

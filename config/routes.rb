@@ -1,19 +1,25 @@
 Rails.application.routes.draw do
-  # static pages
+  # Root
   get 'static/index'
-  root "static#index" 
+  root 'gossips#index'
+
+  # Static pages
   get 'team', to: 'static#team'
   get 'contact', to: 'static#contact'
-  get 'authors', to: 'user#authors_list'
+  get 'welcome/:first_name', to: 'static#welcome'
+  post 'welcome/:first_name', to: 'static#welcome_post'
+  post '/', to: 'static#welcome_post'
 
-  # dynamic pages
-  get 'welcome/:first_name', to: 'user#welcome'
-  post '/', to: 'user#welcome_post'
-  post 'welcome/:first_name', to: 'user#welcome_post'
-  get 'gossip/listing'
-  get 'gossip/:id', to: 'gossip#show_gossip', as: 'gossip/'
-  get 'user/:id', to: 'user#show_user', as: 'user/'
-  # get 'user/welcome' # redirect to welcome/user
+  # Profile pages
 
 
+  # Dynamic pages
+  resources :gossips do
+    resources :comments
+  end
+  resources :users, except: [:edit, :destroy]
+  resources :cities, except: [:edit, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :profiles
+  
 end

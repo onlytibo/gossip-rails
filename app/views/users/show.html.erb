@@ -7,7 +7,8 @@
   <p>Prénom : <strong><%= link_to "#{@user.first_name}", user_path(@user.id) %></strong></p>
   <p>Nom : <strong><%= @user.last_name %></strong></p>
   <p>Age : <strong><%= @user.age %></strong></p>
-  <p>Ville : <strong><% city = @user.city %><%=city.name%></strong></p>
+  <p>Ville : <strong><%= link_to "#{@user.city.name}", city_path(@user.city.id) %></strong></p>
   <p>Description : <strong><i><%= @user.description %></i></strong></p>
 </div>
+
   </section>

@@ -1,0 +1,43 @@
+<section class="team-section my-5">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold my-5">Bienvenue sur The Gossip Project</h2>
+  <!-- Section description -->
+  <p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
+    eum porro a pariatur veniam.</p>
+
+
+</section>
+<% unless params[:add_gossip].nil? %>
+<div class="alert alert-success" role="alert"><%=params[:add_gossip]%></div>
+<% end %>
+<% unless params[:add_user].nil? %>
+<div class="alert alert-success" role="alert"><%=params[:add_user]%></div>
+<% end %>
+
+<br />
+<br />
+<%if logged_in?%>
+<%= link_to "Créer un Gossip", new_gossip_path, class:"btn btn-primary" %>
+<%end%>
+
+<div class="container">
+  <div class="row" style="margin:auto">
+  <% @gossips.each_with_index do |g, index| %>
+
+      <% i = index+1 %>
+
+    <div class="card" style="width: 18rem;margin:10px">
+      <div class="card-body" >
+        <h5 class="card-title"><%= link_to "#{g.title}", gossip_path(g.id) %></h5>
+        <p class="card-text"><%= "#{g.content}" %></p>
+        <p style="font-style:italic">Posté à <%= g.created_at%> par <%= link_to "#{g.user.first_name}", user_path(g.user.id) %></p>
+        <%= link_to "Voir le gossip", gossip_path(g.id), class:"btn btn-primary" %>
+      </div>
+    </div>
+
+
+  <% end %>
+</div>
+</div>

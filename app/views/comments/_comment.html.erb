@@ -1,0 +1,5 @@
+<% @comments.each do |c| %>
+  <%= c.comment %>
+  <% if current_user == c.user %><%= link_to "Delete", gossip_comment_path(c.gossip_id, c.id), method: :delete %><%end%>
+
+<%end%>

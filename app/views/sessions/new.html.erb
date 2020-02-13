@@ -1,0 +1,16 @@
+<br />
+<br />
+
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+      Hello <%=%>
+      <%= label_tag 'Email' %>
+      <%= text_field_tag 'email' %>
+      <br /> <br />
+
+      <%= label_tag 'Password' %>
+      <%= text_area_tag 'password' %>
+      <br /> <br />
+
+      <%= submit_tag "Se connecter" %>
+
+    <% end %>

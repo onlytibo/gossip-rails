@@ -11,6 +11,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'table_print'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'bundler'
+gem 'bcrypt'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

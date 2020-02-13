@@ -22,9 +22,15 @@ end
 
 ds = 0
 10.times do
-  User.create(city:City.all.sample,first_name:Faker::Name.first_name, last_name:Faker::Name.last_name, description:Faker::Lorem.paragraph(sentence_count: 2) , email:Faker::Internet.email, age:Faker::Number.number(digits: 2))
+  User.create(city:City.all.sample,first_name:Faker::Name.first_name, last_name:Faker::Name.last_name, description:Faker::Lorem.paragraph(sentence_count: 2) , email:Faker::Internet.email, age:Faker::Number.number(digits: 2),password:"123456")
   ds += 1
   puts "User #{ds} created !"
+end
+
+# create anonymous
+1.times do
+  User.create(city:City.all.sample,first_name:"Anonymous", last_name:Faker::Name.last_name, description:Faker::Lorem.paragraph(sentence_count: 2) , email:Faker::Internet.email, age:Faker::Number.number(digits: 2),password:"123456")
+  puts "Anonymous created !"
 end
 
 g = 0

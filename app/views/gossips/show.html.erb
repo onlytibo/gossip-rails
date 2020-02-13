@@ -1,0 +1,75 @@
+<section class="team-section text-center my-5">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold my-5"><%=@gossip.title%></h2>
+
+    <p class="grey-text w-responsive mx-auto mb-5">Gossip n°<%=@id%></p>
+
+
+
+
+<div style="border:1px solid grey;padding:20px;">
+  <p>Titre du gossip : <strong><%=@gossip.title%></strong></p>
+  <p>Contenu : <strong><i><%=@gossip.content%></i></strong></p>
+  <p>Auteur : <strong><%= link_to "#{@gossip.user.first_name}", user_path(@gossip.user.id) %></strong></p>
+  <p>Date de création : <strong><%=@gossip.created_at%></strong></p>
+</div>
+<%if current_user == @gossip.user%>
+<%= link_to "Éditer le Gossip", edit_gossip_path, class:"btn btn-primary mb-3 mt-3" %>
+<%= form_tag url_for(action: 'destroy'), method: "delete" do %>
+      <%= submit_tag "Delete Gossip",class:"btn btn-danger mb-3" %>
+<% end %>
+<%end%>
+
+
+<br />
+<br />
+
+<br /><br /><% if @comment.errors.any? %>
+  <div class="alert alert-danger" role="alert"><p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @comment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul></div>
+<% end %>
+
+<%= render 'comments/comment' %><br /><br />
+<%= render 'comments/form' %>
+
+
+
+  </section>
+
+<% if false %>
+
+  ------------------------------------------------------------------------------------------------
+
+  <%= form_tag :controller => 'comments', :action => 'create', method: "post" do %>
+
+      <%= label_tag 'Author' %>
+      <%= text_field_tag 'user', "Anonymous" %>
+      <br /> <br />
+
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'comment_content' %>
+      <br /> <br />
+
+      <%= submit_tag "Post Comment" %>
+    <% end %>
+
+    =============================================================================================
+
+    <div style="text-align:center;">
+  <% @comments.each_with_index do |c, index| %>
+
+    <% i = index+1 %>
+    <p><%= c.content %></p>
+    <p>Posté à <%= c.created_at %> par <%= link_to "#{c.user.first_name}", users_path(c.user.id) %></p>
+    <%= link_to "Edit comment", gossip_path(c.id) %> | <%= link_to "Delete comment", gossip_path(c.id) %>
+  <% end %>
+  </div>
+
+
+
+  <% end %>
