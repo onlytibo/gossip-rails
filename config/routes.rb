@@ -6,10 +6,7 @@ Rails.application.routes.draw do
   # Static pages
   get 'team', to: 'static#team'
   get 'contact', to: 'static#contact'
-  get 'welcome/:first_name', to: 'static#welcome'
-  post 'welcome/:first_name', to: 'static#welcome_post'
-  post '/', to: 'static#welcome_post'
-
+  
   # Dynamic pages
   resources :gossips do
     resources :comments
