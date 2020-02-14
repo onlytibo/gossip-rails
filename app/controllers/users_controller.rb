@@ -15,13 +15,13 @@ class UsersController < ApplicationController
   def create
     # if city exist?
     if City.find_by(name:params['city']) != nil
-      city = City.find_by(name:params['city'])
+      city = City.find_by(name:params['city'].humanize)
     else
-      city = City.create(name:params['city'])
+      city = City.create(name:params['city'].humanize)
     end
     
     # new user
-    @user = User.new(email:params['email'], password:params['password'], city: city, age:params['age'], first_name:params['first_name'], last_name: params['last_name'])
+    @user = User.new(email:params['email'].downcase, password:params['password'], city: city, age:params['age'], first_name:params['first_name'].humanize, last_name: params['last_name'].humanize)
 
     if params['password'] == params['password_confirmation']
       if @user.save

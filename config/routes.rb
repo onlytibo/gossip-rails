@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   end
   resources :users, except: [:edit, :destroy]
   resources :cities, except: [:edit, :destroy]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:index, :new, :create, :destroy]
   resources :profiles
 end
